@@ -4,6 +4,7 @@ import 'package:scifi_flutter/NeonPanel.dart';
 import 'package:scifi_flutter/NeonText.dart';
 import 'package:scifi_flutter/NeonTile.dart';
 import 'package:video_player/video_player.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,7 +34,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin  {
   bool startAnimation = false;
   AnimationController _animationController;
   VideoPlayerController _controller;
@@ -76,7 +77,7 @@ class _HomePageState extends State<HomePage>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      NeonText(
+                  /*   NeonText(
                         text: 'Welcome ',
                         size: 25,
                         color: Colors.white,
@@ -85,6 +86,27 @@ class _HomePageState extends State<HomePage>
                         text: 'Bruno',
                         size: 25,
                         color: Color(0xFF22ffff),
+                      ),*/
+                      SizedBox(
+                        width: 250.0,
+                        child: TyperAnimatedTextKit(
+                          text: [
+                            "Welcome Bruno"
+                          ],
+                          isRepeatingAnimation: false,
+                          textStyle: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                            shadows: <Shadow>[
+                              Shadow(
+                                offset: Offset(-1.5, 1.0),
+                                blurRadius: 3.0,
+                                color: Colors.white.withAlpha(90),
+                              ),
+                            ]),
+                          textAlign: TextAlign.start,
+                          alignment: AlignmentDirectional.topStart // or Alignment.topLeft
+                        ),
                       ),
                     ],
                   ),
