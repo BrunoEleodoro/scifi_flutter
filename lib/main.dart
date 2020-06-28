@@ -5,6 +5,7 @@ import 'package:scifi_flutter/NeonText.dart';
 import 'package:scifi_flutter/NeonTile.dart';
 import 'package:video_player/video_player.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 void main() {
   runApp(MyApp());
@@ -113,9 +114,83 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            SizedBox(height: 10.0,),
+            Align(
+              alignment: Alignment.topRight,
+              child: 
+              ClipPath(
+              clipper: LeftNeonClipper(),
+              child: Container(
+                height: 22,
+                width: 22,
+                color: Color(0XFF22FFFF),
+              ),  
+              ),
+            ),
+
+          
+            Align(
+              alignment: Alignment.centerLeft,
+              child: NeonPanel(
+                child: Text('aaa'),
+                height: 500,
+                width: 300,
+                neonTile: NeonTile(
+                  width: 300,
+                  backgroundColor: Color(0xFF22ffff),
+                  child: Center(
+                    child: NeonText(
+                      text: 'Information',
+                      size: 25,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class RightNeonClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    // Arranca desde la punta topLeft
+    Path path = Path();
+    // Le digo que vaya a bottomCenter
+    path.lineTo(size.width,size.height);
+    // Le digo que vaya a topRight
+    path.lineTo(size.width, 0.0);
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper old) {
+    return old != this;
+  }
+}
+
+class LeftNeonClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    // Arranca desde la punta topLeft
+    Path path = Path();
+    // Le digo que vaya a bottomCenter
+    path.lineTo(0.0,size.height);
+    // Le digo que vaya a topRight
+    path.lineTo(size.width, 0.0);
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper old) {
+    return old != this;
   }
 }

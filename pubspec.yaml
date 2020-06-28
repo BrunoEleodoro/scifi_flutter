@@ -32,6 +32,7 @@ dependencies:
   video_player: ^0.10.4+1
   video_player_web: ^0.1.0
   animated_text_kit: ^2.2.0
+  flutter_custom_clippers: ^1.1.1
 
 
 dev_dependencies:
