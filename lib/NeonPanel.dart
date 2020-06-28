@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scifi_flutter/clippers.dart';
 
 class NeonPanel extends StatefulWidget {
   Widget neonTile;
@@ -59,27 +60,45 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
 //       });
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Container(child: widget.neonTile),
-        Padding(
-          padding: const EdgeInsets.only(top: 60.0),
-          child: AnimatedContainer(
-              duration: Duration(milliseconds: 500),
-              width: (showWidth) ? widget.width : 0,
-              height: (showHeight) ? widget.height : 0,
-              // height: 400,
-              decoration: BoxDecoration(
-                color: Color(0XFF182024),
+    return Container(
+      width: widget.width,
+      height: widget.height,
+      child: Stack(
+        children: <Widget>[
+          Container(child: widget.neonTile),
+          Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: ClipPath(
+                clipper: RightNeonClipper(),
+                child: Container(
+                  height: 22,
+                  width: 22,
+                  color: Colors.black,
+                ),
               ),
-              curve: Curves.easeIn,
-              child: (end)
-                  ? Column(
-                      children: <Widget>[widget.child],
-                    )
-                  : SizedBox()),
-        ),
-      ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 60.0),
+            child: AnimatedContainer(
+                duration: Duration(milliseconds: 500),
+                width: (showWidth) ? widget.width : 0,
+                height: (showHeight) ? widget.height : 0,
+                // height: 400,
+                decoration: BoxDecoration(
+                  color: Color(0XFF182024),
+                ),
+                curve: Curves.easeIn,
+                child: (end)
+                    ? Column(
+                        children: <Widget>[widget.child],
+                      )
+                    : SizedBox()),
+          ),
+        ],
+      ),
     );
   }
 }

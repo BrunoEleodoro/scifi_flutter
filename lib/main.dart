@@ -89,6 +89,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ],
                   )),
             ),
+            // Align(
+            //   alignment: Alignment.topRight,
+            //   child:
+            // ),
             Align(
               alignment: Alignment.center,
               child: NeonPanel(
@@ -98,44 +102,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     color: Colors.white,
                     size: 16,
                     text:
-                        "You're about to enter in a future experience... I invite you to left your past reality and enojy the experience...",
+                        "At a university library, I opened the drawer to a card catalog that isn’t being used anymore. I just decided to open one up, and there was this piece of paper inside that read: ‘If you are reading this, it is proof time travel exists. 4/4/2085.’ It’s a letter from April 4, 2085. This feels like the beginning of a movie",
                     typingAnimation: true,
                   ),
                 ),
-                height: 200,
-                width: 200,
-                neonTile: NeonTile(
-                  width: 300,
-                  backgroundColor: Color(0xFF22ffff),
-                  child: Center(
-                    child: NeonText(
-                      text: 'Information',
-                      size: 25,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: ClipPath(
-                clipper: LeftNeonClipper(),
-                child: Container(
-                  height: 22,
-                  width: 22,
-                  color: Color(0XFF22FFFF),
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: NeonPanel(
-                child: Text(
-                    'It’s been over 2077 days since we announced our plan to develop Cyberpunk 2077. We released a CGI trailer, gave some interviews and… went dark. Normal procedure for these kinds of things — you announce a game and then shut up, roll up your sleeves and get to work. We wanted to give you the Witcher 3 and both expansions first, which is why this period of staying silent was longer than we planned. Sorry for that'),
                 height: 500,
                 width: 300,
                 neonTile: NeonTile(
@@ -155,45 +125,5 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
       ),
     );
-  }
-}
-
-class RightNeonClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    // Arranca desde la punta topLeft
-    Path path = Path();
-    // Le digo que vaya a bottomCenter
-    path.lineTo(size.width, size.height);
-    // Le digo que vaya a topRight
-    path.lineTo(size.width, 0.0);
-
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper old) {
-    return old != this;
-  }
-}
-
-class LeftNeonClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    // Arranca desde la punta topLeft
-    Path path = Path();
-    // Le digo que vaya a bottomCenter
-    path.lineTo(0.0, size.height);
-    // Le digo que vaya a topRight
-    path.lineTo(size.width, 0.0);
-
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper old) {
-    return old != this;
   }
 }

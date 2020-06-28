@@ -37,3 +37,12 @@ class _NeonTileState extends State<NeonTile>
         child: (show) ? widget.child : SizedBox());
   }
 }
+
+// ClipPath(
+//                 clipper: RightNeonClipper(),
+//                 child: Container(
+//                   height: 22,
+//                   width: 22,
+//                   color: Color(0XFF22FFFF),
+//                 ),
+//               ),
