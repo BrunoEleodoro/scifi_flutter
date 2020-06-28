@@ -42,18 +42,18 @@ class _HomePageState extends State<HomePage>
         new AnimationController(vsync: this, duration: Duration(seconds: 1));
     _animationController.repeat();
 
-    Future.delayed(Duration(seconds: 1), () {
-      // final assetsAudioPlayer = AssetsAudioPlayer();
-
-      // assetsAudioPlayer.open(
-      //   Audio("assets/audios/song1.mp3"),
-      // );
-      _controller = VideoPlayerController.asset('assets/audios/menu_sound.mp3');
-      _controller.initialize();
-      _controller.play();
+    Future.delayed(Duration(seconds: 1), () async {
       setState(() {
         startAnimation = true;
       });
+
+      _controller = VideoPlayerController.asset('assets/audios/menu_sound.mp3');
+      await _controller.initialize();
+      _controller.play();
+    });
+
+    Future.delayed(Duration(seconds: 2), () {
+      _controller.pause();
     });
   }
 
@@ -80,57 +80,34 @@ class _HomePageState extends State<HomePage>
                     3.0,
                   ),
                 ),
-              ]
-                  // shape: BoxShape.circle,
-                  // border: Border.all(color: Colors.cyanAccent)
-                  ),
+              ]),
               child: Center(
-                child: FadeTransition(
-                    opacity: _animationController,
-                    child:
-                        Text('Welcome Bruno!', style: TextStyle(fontSize: 25))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Welcome ',
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                            shadows: <Shadow>[
+                              Shadow(
+                                offset: Offset(-1.5, 1.0),
+                                blurRadius: 3.0,
+                                color: Colors.white.withAlpha(90),
+                              ),
+                            ])),
+                    Text('Bruno!',
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Color(0xFF22ffff),
+                        ))
+                  ],
+                ),
               ),
-            )
-            // ClipPath(
-            //   child: Container(
-            //     width: MediaQuery.of(context).size.width,
-            //     height: 200,
-            //     color: Colors.blue,
-            //   ),
-            //   clipper: CustomClipPath(),
-            // ),
-            // ClipPath(
-            //   child: Container(
-            //     margin: EdgeInsets.only(left: 10, right: 10),
-            //     width: MediaQuery.of(context).size.width,
-            //     height: 180,
-            //     color: Colors.black,
-            //   ),
-            //   clipper: CustomClipPath(),
-            // ),
+            ),
           ],
         ),
       ),
     );
   }
-}
-
-class CustomClipPath extends CustomClipper<Path> {
-  var radius = 10.0;
-  @override
-  Path getClip(Size size) {
-    final path = Path();
-    path.lineTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height * 0.8);
-    path.lineTo(size.width * 0.8, size.height);
-    path.lineTo(size.width * 0.2, size.height);
-    path.lineTo(0, size.height * 0.8);
-    path.lineTo(0, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
