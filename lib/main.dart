@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:scifi_flutter/NeonPanel.dart';
+import 'package:scifi_flutter/NeonText.dart';
+import 'package:scifi_flutter/NeonTile.dart';
 import 'package:video_player/video_player.dart';
 
 void main() {
@@ -62,46 +65,48 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(16.0),
         child: Stack(
-          alignment: Alignment.center,
           children: <Widget>[
-            AnimatedContainer(
-              duration: Duration(milliseconds: 300),
-              width: (startAnimation) ? MediaQuery.of(context).size.width : 0,
-              height: 50,
-              decoration: BoxDecoration(color: Color(0XFF182024), boxShadow: [
-                BoxShadow(
-                  color: Color(0xFF000000).withAlpha(60),
-                  blurRadius: 6.0,
-                  spreadRadius: 0.0,
-                  offset: Offset(
-                    0.0,
-                    3.0,
+            Align(
+              alignment: Alignment.topCenter,
+              child: NeonTile(
+                width: MediaQuery.of(context).size.width,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      NeonText(
+                        text: 'Welcome ',
+                        size: 25,
+                        color: Colors.white,
+                      ),
+                      NeonText(
+                        text: 'Bruno',
+                        size: 25,
+                        color: Color(0xFF22ffff),
+                      ),
+                    ],
                   ),
                 ),
-              ]),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Welcome ',
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            shadows: <Shadow>[
-                              Shadow(
-                                offset: Offset(-1.5, 1.0),
-                                blurRadius: 3.0,
-                                color: Colors.white.withAlpha(90),
-                              ),
-                            ])),
-                    Text('Bruno!',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Color(0xFF22ffff),
-                        ))
-                  ],
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: NeonPanel(
+                child: Text('aaa'),
+                height: 500,
+                width: 300,
+                neonTile: NeonTile(
+                  width: 300,
+                  backgroundColor: Color(0xFF22ffff),
+                  child: Center(
+                    child: NeonText(
+                      text: 'Information',
+                      size: 25,
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
               ),
             ),
