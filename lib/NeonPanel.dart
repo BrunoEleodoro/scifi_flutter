@@ -42,12 +42,15 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
       // print('start2');
       // _animationControllerHeight.forward();
       setState(() {
+        end = true;
         showWidth = true;
       });
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(Duration(milliseconds: 300));
       setState(() {
         showHeight = true;
       });
+      await Future.delayed(Duration(milliseconds: 500));
+      setState(() {});
     });
   }
 
@@ -56,7 +59,6 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
 //       });
   @override
   Widget build(BuildContext context) {
-    print(widget.height);
     return AnimatedContainer(
         duration: Duration(milliseconds: 500),
         width: (showWidth) ? widget.width : 0,
@@ -65,7 +67,6 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           color: Color(0XFF182024),
         ),
-        onEnd: () => setState(() => end = true),
         curve: Curves.easeIn,
         child: (end)
             ? Column(

@@ -4,7 +4,8 @@ class NeonTile extends StatefulWidget {
   double width;
   Widget child;
   Color backgroundColor;
-  NeonTile({this.width, this.child, this.backgroundColor});
+  NeonTile(
+      {this.width, this.child, this.backgroundColor = const Color(0XFF182024)});
 
   @override
   _NeonTileState createState() => _NeonTileState();

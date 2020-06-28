@@ -33,8 +33,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with TickerProviderStateMixin  {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   bool startAnimation = false;
   AnimationController _animationController;
   VideoPlayerController _controller;
@@ -74,42 +73,24 @@ class _HomePageState extends State<HomePage>
               child: NeonTile(
                 width: MediaQuery.of(context).size.width,
                 child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                  /*   NeonText(
-                        text: 'Welcome ',
-                        size: 25,
-                        color: Colors.white,
+                  child: TyperAnimatedTextKit(
+                      speed: Duration(milliseconds: 80),
+                      text: ["Welcome To 2077"],
+                      isRepeatingAnimation: false,
+                      textStyle: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(-1.5, 1.0),
+                              blurRadius: 3.0,
+                              color: Colors.white.withAlpha(90),
+                            ),
+                          ]),
+                      textAlign: TextAlign.start,
+                      alignment:
+                          AlignmentDirectional.topStart // or Alignment.topLeft
                       ),
-                      NeonText(
-                        text: 'Bruno',
-                        size: 25,
-                        color: Color(0xFF22ffff),
-                      ),*/
-                      SizedBox(
-                        width: 250.0,
-                        child: TyperAnimatedTextKit(
-                          text: [
-                            "Welcome Bruno"
-                          ],
-                          isRepeatingAnimation: false,
-                          textStyle: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            shadows: <Shadow>[
-                              Shadow(
-                                offset: Offset(-1.5, 1.0),
-                                blurRadius: 3.0,
-                                color: Colors.white.withAlpha(90),
-                              ),
-                            ]),
-                          textAlign: TextAlign.start,
-                          alignment: AlignmentDirectional.topStart // or Alignment.topLeft
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ),
             ),
