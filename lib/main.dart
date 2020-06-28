@@ -72,35 +72,38 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Align(
               alignment: Alignment.topCenter,
               child: NeonTile(
-                width: MediaQuery.of(context).size.width,
-                child: Center(
-                  child: TyperAnimatedTextKit(
-                      speed: Duration(milliseconds: 80),
-                      text: ["Welcome To 2077"],
-                      isRepeatingAnimation: false,
-                      textStyle: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          shadows: <Shadow>[
-                            Shadow(
-                              offset: Offset(-1.5, 1.0),
-                              blurRadius: 3.0,
-                              color: Colors.white.withAlpha(90),
-                            ),
-                          ]),
-                      textAlign: TextAlign.start,
-                      alignment:
-                          AlignmentDirectional.topStart // or Alignment.topLeft
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      NeonText(
+                        color: Colors.white,
+                        size: 25,
+                        text: 'Welcome To ',
                       ),
-                ),
-              ),
+                      NeonText(
+                        color: Color(0xFF22ffff),
+                        size: 25,
+                        text: '2077',
+                      )
+                    ],
+                  )),
             ),
             Align(
               alignment: Alignment.center,
               child: NeonPanel(
-                child: Text('aaa'),
-                height: 500,
-                width: 300,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: NeonText(
+                    color: Colors.white,
+                    size: 16,
+                    text:
+                        "You're about to enter in a future experience... I invite you to left your past reality and enojy the experience...",
+                    typingAnimation: true,
+                  ),
+                ),
+                height: 200,
+                width: 200,
                 neonTile: NeonTile(
                   width: 300,
                   backgroundColor: Color(0xFF22ffff),
@@ -114,25 +117,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Align(
               alignment: Alignment.topRight,
-              child: 
-              ClipPath(
-              clipper: LeftNeonClipper(),
-              child: Container(
-                height: 22,
-                width: 22,
-                color: Color(0XFF22FFFF),
-              ),  
+              child: ClipPath(
+                clipper: LeftNeonClipper(),
+                child: Container(
+                  height: 22,
+                  width: 22,
+                  color: Color(0XFF22FFFF),
+                ),
               ),
             ),
-
-          
             Align(
               alignment: Alignment.centerLeft,
               child: NeonPanel(
-                child: Text('aaa'),
+                child: Text(
+                    'It’s been over 2077 days since we announced our plan to develop Cyberpunk 2077. We released a CGI trailer, gave some interviews and… went dark. Normal procedure for these kinds of things — you announce a game and then shut up, roll up your sleeves and get to work. We wanted to give you the Witcher 3 and both expansions first, which is why this period of staying silent was longer than we planned. Sorry for that'),
                 height: 500,
                 width: 300,
                 neonTile: NeonTile(
@@ -161,7 +164,7 @@ class RightNeonClipper extends CustomClipper<Path> {
     // Arranca desde la punta topLeft
     Path path = Path();
     // Le digo que vaya a bottomCenter
-    path.lineTo(size.width,size.height);
+    path.lineTo(size.width, size.height);
     // Le digo que vaya a topRight
     path.lineTo(size.width, 0.0);
 
@@ -181,7 +184,7 @@ class LeftNeonClipper extends CustomClipper<Path> {
     // Arranca desde la punta topLeft
     Path path = Path();
     // Le digo que vaya a bottomCenter
-    path.lineTo(0.0,size.height);
+    path.lineTo(0.0, size.height);
     // Le digo que vaya a topRight
     path.lineTo(size.width, 0.0);
 

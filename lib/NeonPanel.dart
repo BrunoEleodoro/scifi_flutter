@@ -59,25 +59,27 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
 //       });
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-        duration: Duration(milliseconds: 500),
-        width: (showWidth) ? widget.width : 0,
-        height: (showHeight) ? widget.height : 0,
-        // height: 400,
-        decoration: BoxDecoration(
-          color: Color(0XFF182024),
+    return Stack(
+      children: <Widget>[
+        Container(child: widget.neonTile),
+        Padding(
+          padding: const EdgeInsets.only(top: 60.0),
+          child: AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              width: (showWidth) ? widget.width : 0,
+              height: (showHeight) ? widget.height : 0,
+              // height: 400,
+              decoration: BoxDecoration(
+                color: Color(0XFF182024),
+              ),
+              curve: Curves.easeIn,
+              child: (end)
+                  ? Column(
+                      children: <Widget>[widget.child],
+                    )
+                  : SizedBox()),
         ),
-        curve: Curves.easeIn,
-        child: (end)
-            ? Column(
-                children: <Widget>[
-                  widget.neonTile,
-                  SizedBox(
-                    height: 20,
-                  ),
-                  widget.child
-                ],
-              )
-            : SizedBox());
+      ],
+    );
   }
 }
