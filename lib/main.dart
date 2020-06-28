@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         text: 'Welcome To ',
                       ),
                       NeonText(
-                        color: Color(0xFF22ffff),
+                        color: Color(0XFF22ffff),
                         size: 25,
                         text: '2077',
                       )
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             //   child:
             // ),
             Align(
-              alignment: Alignment.center,
+              alignment: Alignment.centerRight,
               child: NeonPanel(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 width: 300,
                 neonTile: NeonTile(
                   width: 300,
-                  backgroundColor: Color(0xFF22ffff),
+                  backgroundColor: Color(0XFF22ffff),
                   child: Center(
                     child: NeonText(
                       text: 'Information',
@@ -118,6 +118,67 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       color: Colors.black,
                     ),
                   ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    NeonPanel(
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.network(
+                            'https://cdn.dribbble.com/users/307908/screenshots/4449308/big.gif',
+                          )),
+                      height: 300,
+                      width: 300,
+                      neonTile: NeonTile(
+                        width: 300,
+                        backgroundColor: Color(0XFF22ffff),
+                        child: Center(
+                          child: NeonText(
+                            text: 'Hologram',
+                            size: 25,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    NeonPanel(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: <Widget>[
+                            NeonText(
+                              color: Colors.white,
+                              size: 16,
+                              text:
+                                  "At a university library, I opened the drawer to a card catalog that isn’t being used anymore. I just decided to open one up, and there was this piece of paper inside that read: ‘If you are reading this, it is proof time travel exists. 4/4/2085.’ It’s a letter from April 4, 2085. This feels like the beginning of a movie",
+                              typingAnimation: true,
+                            ),
+                          ],
+                        ),
+                      ),
+                      height: 300,
+                      width: 300,
+                      neonTile: NeonTile(
+                        width: 300,
+                        backgroundColor: Color(0XFF22ffff),
+                        child: Center(
+                          child: NeonText(
+                            text: 'Information',
+                            size: 25,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

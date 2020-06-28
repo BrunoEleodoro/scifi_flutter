@@ -55,6 +55,7 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
     });
   }
 
+// #edf195
 //  setState(() {
 //         startAnimationHeight = false;
 //       });
@@ -70,6 +71,20 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
             alignment: Alignment.topRight,
             child: Padding(
               padding: const EdgeInsets.all(2.0),
+              child: ClipPath(
+                clipper: RightNeonClipper(),
+                child: Container(
+                  height: 22,
+                  width: 22,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 50.0),
               child: ClipPath(
                 clipper: RightNeonClipper(),
                 child: Container(
