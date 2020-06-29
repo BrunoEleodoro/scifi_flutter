@@ -4,6 +4,7 @@ import 'package:scifi_flutter/NeonPanel.dart';
 import 'package:scifi_flutter/BorderNeonPanel.dart';
 import 'package:scifi_flutter/NeonText.dart';
 import 'package:scifi_flutter/NeonTile.dart';
+import 'package:scifi_flutter/about.dart';
 import 'package:scifi_flutter/playground.dart';
 import 'package:scifi_flutter/weather.dart';
 import 'package:video_player/video_player.dart';
@@ -43,7 +44,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: (selectedIndex == 0) ? PlaygroundScreen() : WeatherPage(),
+      body: (selectedIndex == 0)
+          ? PlaygroundScreen()
+          : (selectedIndex == 1) ? WeatherPage() : AboutPage(),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,
           onTap: (value) {
@@ -55,7 +58,11 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
                 title: Text('Home'), icon: Icon(Icons.home)),
             BottomNavigationBarItem(
-                title: Text('Weather'), icon: Icon(Icons.cloud)),
+              title: Text('Weather'),
+              icon: Icon(Icons.cloud),
+            ),
+            BottomNavigationBarItem(
+                title: Text('Developers'), icon: Icon(Icons.developer_mode)),
           ]),
     );
   }
