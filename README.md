@@ -16,9 +16,8 @@ ___
 ___
 
 <h3 align="center">
-  <a href="#information_source-sobre">Sobre</a>&nbsp;|&nbsp;
-  <a href="#interrobang-motivo">Motivo</a>&nbsp;|&nbsp;
-  <a href="#rocket-tecnologias-utilizadas">Tecnologias</a>&nbsp;|&nbsp;
+  <a href="#information_source-sobre">About</a>&nbsp;|&nbsp;
+  <a href="#rocket-tecnologias-utilizadas">Technologies</a>&nbsp;|&nbsp;
   <a href="#licença">Licença</a>
 </h3>
 
@@ -28,15 +27,12 @@ ___
 <img src="https://raw.githubusercontent.com/BrunoEleodoro/scifi_flutter/master/images/weather.png" width="1200">
 <img src="https://raw.githubusercontent.com/BrunoEleodoro/scifi_flutter/master/images/developers.png" width="1200">
 
-## :information_source: Sobre
+## :information_source: About
 
 Cyberpunk was always a subject that we both loved to view, and get inspired. The future is something that fascinate humanity and the designers and futuristic persons are the really ones building the Sci Fi future. Please, check out and share with us some feedback, we would love to hear.
 
-## :interrobang: Motivo
 
-
-
-## :rocket: Tecnologias Utilizadas 
+## :rocket: Technologies 
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias
 
