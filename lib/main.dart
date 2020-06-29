@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:scifi_flutter/NeonPanel.dart';
+import 'package:scifi_flutter/BorderNeonPanel.dart';
 import 'package:scifi_flutter/NeonText.dart';
 import 'package:scifi_flutter/NeonTile.dart';
 import 'package:video_player/video_player.dart';
@@ -69,7 +70,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         padding: const EdgeInsets.all(16.0),
         child: Stack(
           children: <Widget>[
-            Align(
+            Container(
+            height: 500,
+            child: Align(
               alignment: Alignment.topCenter,
               child: NeonTile(
                   width: MediaQuery.of(context).size.width,
@@ -82,61 +85,55 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         text: 'Welcome To ',
                       ),
                       NeonText(
-                        color: Color(0XFF22ffff),
+                        color: Color(0XFFe6cb00).withOpacity(0.8),
                         size: 25,
                         text: '2077',
                       )
                     ],
                   )),
             ),
-            // Align(
-            //   alignment: Alignment.topRight,
-            //   child:
-            // ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: NeonPanel(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: NeonText(
-                    color: Colors.white,
-                    size: 16,
-                    text:
-                        "At a university library, I opened the drawer to a card catalog that isn’t being used anymore. I just decided to open one up, and there was this piece of paper inside that read: ‘If you are reading this, it is proof time travel exists. 4/4/2085.’ It’s a letter from April 4, 2085. This feels like the beginning of a movie",
-                    typingAnimation: true,
-                  ),
-                ),
-                height: 500,
-                width: 300,
-                neonTile: NeonTile(
-                  width: 300,
-                  backgroundColor: Color(0XFF22ffff),
-                  child: Center(
-                    child: NeonText(
-                      text: 'Information',
-                      size: 25,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
             ),
+
+           /* Align(
+              alignment: Alignment.centerRight,
+              child: BorderNeonPanel(
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.network(
+                            'https://i.pinimg.com/originals/9e/c2/81/9ec2814f132e9200c8642ecaab7e2317.gif',
+                          )),
+                      height: 305,
+                      width: 300,
+                      neonTile: NeonTile(
+                        width: 300,
+                        backgroundColor: Color(0XFFe6cb00).withOpacity(0.8),
+                        child: Center(
+                          child: NeonText(
+                            text: 'Hologram',
+                            size: 25,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+            ),*/
+            
             Align(
               alignment: Alignment.centerLeft,
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    NeonPanel(
+                    BorderNeonPanel(
                       child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.network(
-                            'https://cdn.dribbble.com/users/307908/screenshots/4449308/big.gif',
+                            'https://66.media.tumblr.com/c24367d7934ae22c352ac4e639aea456/tumblr_pqucgdhVaf1ujqvcvo1_400.gifv',
                           )),
-                      height: 300,
+                      height: 360,
                       width: 300,
                       neonTile: NeonTile(
                         width: 300,
-                        backgroundColor: Color(0XFF22ffff),
+                        backgroundColor: Color(0XFFe6cb00).withOpacity(0.8),
                         child: Center(
                           child: NeonText(
                             text: 'Hologram',
@@ -154,7 +151,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: <Widget>[
-                            NeonText(
+                            NeonText( 
                               color: Colors.white,
                               size: 16,
                               text:
@@ -168,7 +165,71 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       width: 300,
                       neonTile: NeonTile(
                         width: 300,
-                        backgroundColor: Color(0XFF22ffff),
+                        backgroundColor: Color(0XFFe6cb00).withOpacity(0.8),
+                        child: Center(
+                          child: NeonText(
+                            text: 'Information',
+                            size: 25,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            
+            
+            Align(
+              alignment: Alignment.centerRight,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    BorderNeonPanel(
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.network(
+                            'https://i.pinimg.com/originals/9e/c2/81/9ec2814f132e9200c8642ecaab7e2317.gif',
+                          )),
+                      height: 305,
+                      width: 300,
+                      neonTile: NeonTile(
+                        width: 300,
+                        backgroundColor: Color(0XFFe6cb00).withOpacity(0.8),
+                        child: Center(
+                          child: NeonText(
+                            text: 'Hologram',
+                            size: 25,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                   SizedBox(
+                      height: 20,
+                    ),
+                    NeonPanel(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: <Widget>[
+                            NeonText( 
+                              color: Colors.white,
+                              size: 16,
+                              text:
+                                  "At a university library, I opened the drawer to a card catalog that isn’t being used anymore. I just decided to open one up, and there was this piece of paper inside that read: ‘If you are reading this, it is proof time travel exists. 4/4/2085.’ It’s a letter from April 4, 2085. This feels like the beginning of a movie",
+                              typingAnimation: true,
+                            ),
+                          ],
+                        ),
+                      ),
+                      height: 300,
+                      width: 300,
+                      neonTile: NeonTile(
+                        width: 300,
+                        backgroundColor: Color(0XFFe6cb00).withOpacity(0.8),
                         child: Center(
                           child: NeonText(
                             text: 'Information',

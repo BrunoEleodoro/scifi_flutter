@@ -11,7 +11,7 @@ class NeonText extends StatelessWidget {
   Widget build(BuildContext context) {
     if (typingAnimation) {
       return TyperAnimatedTextKit(
-          speed: Duration(milliseconds: 80),
+          speed: Duration(milliseconds: 40),
           text: [text],
           isRepeatingAnimation: false,
           textStyle: TextStyle(fontSize: size, color: color, shadows: <Shadow>[
