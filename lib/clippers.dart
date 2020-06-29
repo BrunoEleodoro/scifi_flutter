@@ -48,7 +48,7 @@ class BottomNeonClipper extends CustomClipper<Path> {
     // Le digo que vaya a bottomCenter
     path.lineTo(0.0, size.height);
     // Le digo que vaya a topRight
-    path.lineTo(size.width, 0.0);
+    path.lineTo(0.0, size.width);
 
     path.close();
     return path;

@@ -82,6 +82,20 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
             ),
           ),
           Align(
+            alignment: Alignment.bottomLeft,
+            child: Transform.rotate(
+              angle: 21.99,
+              child: ClipPath(
+                clipper: RightNeonClipper(),
+                child: Container(
+                  height: 22,
+                  width: 22,
+                  color: Color(0XFF182024),
+                ),
+              ),
+            ),
+          ),
+          Align(
             alignment: Alignment.topLeft,
             child: Padding(
               padding: const EdgeInsets.only(top: 50.0),
@@ -107,8 +121,10 @@ class _NeonPanelState extends State<NeonPanel> with TickerProviderStateMixin {
                 ),
                 curve: Curves.easeIn,
                 child: (end)
-                    ? Column(
-                        children: <Widget>[widget.child],
+                    ? SingleChildScrollView(
+                        child: Column(
+                          children: <Widget>[widget.child],
+                        ),
                       )
                     : SizedBox()),
           ),

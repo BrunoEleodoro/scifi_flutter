@@ -35,39 +35,30 @@ class _HomePageState extends State<HomePage>
   AnimationController _animationController;
   VideoPlayerController _controller;
 
-
-   Animation<int> _characterCount;
+  Animation<int> _characterCount;
 
   int _stringIndex;
-  static const List<String> _kStrings = const <String>[
-    'Welcome Bruno'
-  ];
+  static const List<String> _kStrings = const <String>['Welcome Bruno'];
   String get _currentString => _kStrings[_stringIndex % _kStrings.length];
-
-  
 
   @override
   void initState() {
     super.initState();
-    
 
-     Future.delayed(Duration(seconds: 1), () async {
+    Future.delayed(Duration(seconds: 1), () async {
       AnimationController controller = new AnimationController(
-            duration: const Duration(milliseconds: 1000),
-            vsync: this,
-          );
-          setState(() {
-            _stringIndex = _stringIndex == null ? 0 : _stringIndex + 1;
-            _characterCount = new StepTween(begin: 0, end: _currentString.length)
-              .animate(new CurvedAnimation(parent: controller, curve: Curves.easeIn));
-          });
-          await controller.forward();
-          controller.dispose();
-
+        duration: const Duration(milliseconds: 1000),
+        vsync: this,
+      );
+      setState(() {
+        _stringIndex = _stringIndex == null ? 0 : _stringIndex + 1;
+        _characterCount = new StepTween(begin: 0, end: _currentString.length)
+            .animate(
+                new CurvedAnimation(parent: controller, curve: Curves.easeIn));
+      });
+      await controller.forward();
+      controller.dispose();
     });
-
-   
-    
   }
 
   @override
@@ -81,17 +72,14 @@ class _HomePageState extends State<HomePage>
       backgroundColor: Colors.black,
       floatingActionButton: new FloatingActionButton(
         child: new Icon(Icons.navigate_next),
-        onPressed: () async {
-          
-        },
+        onPressed: () async {},
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            
-          /*  AnimatedContainer(
+            /*  AnimatedContainer(
               duration: Duration(milliseconds: 300),
               width: (startAnimation) ? MediaQuery.of(context).size.width : 0,
               height: 50,
@@ -106,38 +94,40 @@ class _HomePageState extends State<HomePage>
                   ),
                 ),
               ]),*/
-              //child:
-               Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: new EdgeInsets.symmetric(vertical: 50.0, horizontal: 10.0),
-                      child: _characterCount == null ? null : new AnimatedBuilder(
-                        animation: _characterCount,
-                        builder: (BuildContext context, Widget child) {
-                          String text = _currentString.substring(0, _characterCount.value);
-                          return new Text(text,style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white,
-                            shadows: <Shadow>[
-                              Shadow(
-                                offset: Offset(-1.5, 1.0),
-                                blurRadius: 3.0,
-                                color: Colors.white.withAlpha(90),
-                              ),
-                            ]));
-                        },
-                      ),
-                    ),
-                         
-                  ],
-                ),
+            //child:
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: new EdgeInsets.symmetric(
+                        vertical: 50.0, horizontal: 10.0),
+                    child: _characterCount == null
+                        ? null
+                        : new AnimatedBuilder(
+                            animation: _characterCount,
+                            builder: (BuildContext context, Widget child) {
+                              String text = _currentString.substring(
+                                  0, _characterCount.value);
+                              return new Text(text,
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.white,
+                                      shadows: <Shadow>[
+                                        Shadow(
+                                          offset: Offset(-1.5, 1.0),
+                                          blurRadius: 3.0,
+                                          color: Colors.white.withAlpha(90),
+                                        ),
+                                      ]));
+                            },
+                          ),
+                  ),
+                ],
               ),
+            ),
             //),
-            
           ],
-          
         ),
       ),
     );
