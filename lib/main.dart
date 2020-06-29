@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         size: 25,
                         text: '2077',
                       )
-                    ],
+                    ],    
                   )),
             ),
             ),
@@ -210,29 +210,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                    SizedBox(
                       height: 20,
                     ),
-                    NeonPanel(
+                    BorderNeonPanel(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: <Widget>[
-                            NeonText( 
-                              color: Colors.white,
-                              size: 16,
-                              text:
-                                  "At a university library, I opened the drawer to a card catalog that isn’t being used anymore. I just decided to open one up, and there was this piece of paper inside that read: ‘If you are reading this, it is proof time travel exists. 4/4/2085.’ It’s a letter from April 4, 2085. This feels like the beginning of a movie",
-                              typingAnimation: true,
-                            ),
-                          ],
-                        ),
-                      ),
-                      height: 300,
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.network(
+                            'https://thumbs.gfycat.com/MetallicNegativeBobolink-max-1mb.gif',
+                          )),
+                      height: 240,
                       width: 300,
                       neonTile: NeonTile(
                         width: 300,
                         backgroundColor: Color(0XFFe6cb00).withOpacity(0.8),
                         child: Center(
                           child: NeonText(
-                            text: 'Information',
+                            text: 'Hologram',
                             size: 25,
                             color: Colors.black,
                           ),
